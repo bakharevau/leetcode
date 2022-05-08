@@ -59,6 +59,37 @@ def binarySearch(nums, target):
     # End Condition: left > right
     return -1
 
+#Template #2:
+def binarySearch(nums, target):
+    """
+    Шаблон № 2 — это расширенная форма бинарного поиска.
+    Он используется для поиска элемента или условия, требующего доступа к
+    текущему индексу и индексу его непосредственного правого соседа в массиве.
+
+    :type nums: List[int]
+    :type target: int
+    :rtype: int
+    """
+    if len(nums) == 0:
+        return -1
+
+    left, right = 0, len(nums)
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid + 1
+        else:
+            right = mid
+
+    # Post-processing:
+    # End Condition: left == right
+    if left != len(nums) and nums[left] == target:
+        return left
+    return -1
+
+
 x = Solution()
 ans = x.search([-1, 0, 3, 5, 9, 12], 9)
 print(ans)
