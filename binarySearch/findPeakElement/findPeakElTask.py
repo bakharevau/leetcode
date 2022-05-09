@@ -20,12 +20,6 @@ class Solution:
             else:
                 return Solution.search(self, nums, mid + 1, right)
 
-        # Post-processing:
-        # End Condition: left == right
-        # if left != len(nums) and nums[left] == target:
-        #     return left
-        # return -1
-
     def findPeakElement(self, nums: list[int]) -> int:
         return Solution.search(self, nums, 0, len(nums) - 1)
 

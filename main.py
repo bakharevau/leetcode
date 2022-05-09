@@ -1,24 +1,28 @@
-def guess(n):
-    pass
-
 class Solution:
-    def guessNumber(self, n: int) -> int:
-        # if n == 1: return 1
-        # if n == 2: return 1
-        left = 1
-        right = n
+    def mostClosestEls(nums, k, x):
+        pass
 
-        while left <= right:
-            mid = left + (right - left) // 2
-            if guess(mid) == -1:
-                right = mid - 1
-            elif guess(mid) == 0:
-                return mid
+    def findPeakElement(self, nums):
+        left = 0
+        right = len(nums) - 1
+        while left + 1 < right:
+            mid = (left + right) // 2
+            if nums[mid] > nums[mid + 1]:
+                right = mid
             else:
-                left = mid + 1
-
+                left = mid
+        return left if nums[left] > nums[right] else right
 
 
 x = Solution()
-ans = x.guessNumber(10)
+# ans = x.findClosestElements([1, 2, 3, 4, 5], 4, 3)
+# ans = x.findClosestElements([1], 1, 1)
+# ans = x.findClosestElements([-2, -1, 1, 2, 3, 4, 5], 7, 3)
+ans = x.findPeakElement([1, 2, 3, 1])
+print(ans)
+ans = x.findPeakElement([1, 2])
+print(ans)
+ans = x.findPeakElement([6, 5, 4, 3, 2, 3, 2])
+print(ans)
+ans = x.findPeakElement([1, 2, 3, 1])
 print(ans)
