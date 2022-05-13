@@ -1,19 +1,20 @@
 ### Задание
 SQL Schema
+```
 Create table If Not Exists Employee (id int, salary int)
 Truncate table Employee
 insert into Employee (id, salary) values ('1', '100')
 insert into Employee (id, salary) values ('2', '200')
 insert into Employee (id, salary) values ('3', '300')
+```
 
 Table: Employee
 
-+-------------+------+
 | Column Name | Type |
-+-------------+------+
+|:---------------:|:------------:|
 | id          | int  |
 | salary      | int  |
-+-------------+------+
+
 id is the primary key column for this table.
 Each row of this table contains information about the salary of an employee.
  
@@ -24,35 +25,34 @@ The query result format is in the following example.
 
  
 
-Example 1:
+## Example 1:
 
-Input: 
+### Input: 
 Employee table:
-+----+--------+
+
 | id | salary |
-+----+--------+
+|:---------------:|:------------:|
 | 1  | 100    |
 | 2  | 200    |
 | 3  | 300    |
-+----+--------+
-Output: 
-+---------------------+
-| SecondHighestSalary |
-+---------------------+
-| 200                 |
-+---------------------+
-Example 2:
 
-Input: 
-Employee table:
-+----+--------+
-| id | salary |
-+----+--------+
-| 1  | 100    |
-+----+--------+
-Output: 
-+---------------------+
+### Output: 
+
 | SecondHighestSalary |
-+---------------------+
+|:---------------:|
+| 200                 |
+
+## Example 2:
+
+### Input: 
+Employee table:
+
+| id | salary |
+|:---------------:|:------------:|
+| 1  | 100    |
+
+### Output: 
+
+| SecondHighestSalary |
+|:---------------:|
 | null                |
-+---------------------+
