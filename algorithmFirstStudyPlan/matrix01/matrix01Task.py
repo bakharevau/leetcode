@@ -3,6 +3,7 @@ class Solution:
         queue = []
         m = len(mat)
         n = len(mat[0])
+        neighbors = [[0, 1], [1, 0], [0, -1], [-1, 0]]
 
         for i in range(m):
             for j in range(n):
@@ -13,19 +14,13 @@ class Solution:
 
         while queue:
             x, y = queue.pop(0)  # x - col index, y - row index
-            if x + 1 in range(n) and y in range(m) and mat[y][x + 1] == -1:
-                mat[y][x + 1] = mat[y][x] + 1
-                queue.append([x + 1, y])
-            if x in range(n) and y + 1 in range(m) and mat[y + 1][x] == -1:
-                mat[y + 1][x] = mat[y][x] + 1
-                queue.append([x, y + 1])
-            if x - 1 in range(n) and y in range(m) and mat[y][x - 1] == -1:
-                mat[y][x - 1] = mat[y][x] + 1
-                queue.append([x - 1, y])
-            if x in range(n) and y - 1 in range(m) and mat[y - 1][x] == -1:
-                mat[y - 1][x] = mat[y][x] + 1
-                queue.append([x, y - 1])
-
+            for i in range(4):
+                dx, dy = neighbors[i]
+                row = y + dy
+                col = x + dx
+                if col in range(n) and row in range(m) and mat[row][col] == -1:
+                    mat[row][col] = mat[y][x] + 1
+                    queue.append([col, row])
         return mat
 
 
